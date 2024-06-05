@@ -27,6 +27,9 @@ INSERT INTO graphics_cards (name, price, brand, model, memory_size, memory_type)
 ('ASUS TUF Gaming GeForce RTX 3090', 1500.00, 'ASUS', 'RTX 3090', 24, 'GDDR6X'),
 ('Gigabyte GeForce RTX 3080 Ti', 1300.00, 'Gigabyte', 'RTX 3080 Ti', 12, 'GDDR6X');
 
+
+
+
 -- Μητρικές (Motherboards)
 INSERT INTO motherboards (name, price, brand, socket_type, chipset) VALUES
 -- Daily Use
@@ -53,6 +56,9 @@ INSERT INTO motherboards (name, price, brand, socket_type, chipset) VALUES
 ('MSI MEG Z590 GODLIKE', 240.00, 'MSI', 'LGA1200', 'Z590'),
 ('ASRock X570 Taichi', 300.00, 'ASRock', 'AM4', 'X570'),
 ('Biostar Z590 Valkyrie', 280.00, 'Biostar', 'LGA1200', 'Z590');
+
+
+
 
 -- Επεξεργαστές (Processors)
 INSERT INTO processors (name, price, brand, cores, threads, base_clock, boost_clock) VALUES
@@ -81,6 +87,9 @@ INSERT INTO processors (name, price, brand, cores, threads, base_clock, boost_cl
 ('Intel Core i7-11700K', 400.00, 'Intel', 8, 16, 3.6, 5.0),
 ('AMD Ryzen 5 5600X', 300.00, 'AMD', 6, 12, 3.7, 4.6);
 
+
+
+
 -- RAM
 INSERT INTO ram (name, price, brand, capacity, type, speed) VALUES
 -- Daily Use
@@ -107,6 +116,9 @@ INSERT INTO ram (name, price, brand, capacity, type, speed) VALUES
 ('Kingston HyperX Fury 16GB', 120.00, 'Kingston', 16, 'DDR4', 3200),
 ('Crucial Ballistix 16GB', 115.00, 'Crucial', 16, 'DDR4', 3200),
 ('ADATA XPG Spectrix D80 16GB', 105.00, 'ADATA', 16, 'DDR4', 3600);
+
+
+
 
 -- Αποθήκευση (Storage)
 INSERT INTO storage (name, price, brand, type, capacity) VALUES
@@ -135,6 +147,9 @@ INSERT INTO storage (name, price, brand, type, capacity) VALUES
 ('Western Digital Blue 500GB', 140.00, 'Western Digital', 'SSD', 500),
 ('ADATA SU650 480GB', 130.00, 'ADATA', 'SSD', 480);
 
+
+
+
 -- Τροφοδοτικά (Power Supplies)
 INSERT INTO power_supplies (name, price, brand, wattage, efficiency_rating) VALUES
 -- Daily Use
@@ -162,6 +177,9 @@ INSERT INTO power_supplies (name, price, brand, wattage, efficiency_rating) VALU
 ('Cooler Master V650', 135.00, 'Cooler Master', 650, '80+ Gold'),
 ('Thermaltake Smart Pro RGB 650W', 125.00, 'Thermaltake', 650, '80+ Bronze');
 
+
+
+
 -- Ψύκτρες CPU (CPU Coolers)
 INSERT INTO cpu_coolers (name, price, brand, type) VALUES
 -- Daily Use
@@ -188,6 +206,9 @@ INSERT INTO cpu_coolers (name, price, brand, type) VALUES
 ('NZXT Kraken X73', 180.00, 'NZXT', 'Liquid'),
 ('be quiet! Shadow Rock 3', 50.00, 'be quiet!', 'Air'),
 ('Noctua NH-L9i', 45.00, 'Noctua', 'Air');
+
+
+
 
 -- Κουτιά Υπολογιστών (PC Cases)
 INSERT INTO pc_cases (name, price, brand, form_factor, max_gpu_length, max_cpu_cooler_height) VALUES
