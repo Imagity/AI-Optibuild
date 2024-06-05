@@ -189,3 +189,31 @@ INSERT INTO cpu_coolers (name, price, brand, type) VALUES
 ('be quiet! Shadow Rock 3', 50.00, 'be quiet!', 'Air'),
 ('Noctua NH-L9i', 45.00, 'Noctua', 'Air');
 
+-- Κουτιά Υπολογιστών (PC Cases)
+INSERT INTO pc_cases (name, price, brand, form_factor, max_gpu_length, max_cpu_cooler_height) VALUES
+-- Daily Use
+('Cooler Master MasterBox Q300L', 40.00, 'Cooler Master', 'MicroATX', 360, 160),
+('NZXT H510', 50.00, 'NZXT', 'ATX', 381, 165),
+('Corsair Carbide Series 175R', 55.00, 'Corsair', 'ATX', 330, 160),
+('Thermaltake Versa H18', 45.00, 'Thermaltake', 'MicroATX', 350, 155),
+('Fractal Design Core 1100', 35.00, 'Fractal Design', 'MicroATX', 350, 148),
+-- Gaming
+('NZXT H510 Elite', 130.00, 'NZXT', 'ATX', 368, 165),
+('Cooler Master MasterCase H500', 150.00, 'Cooler Master', 'ATX', 410, 167),
+('Corsair iCUE 4000X RGB', 140.00, 'Corsair', 'ATX', 360, 170),
+('Thermaltake View 71', 160.00, 'Thermaltake', 'ATX', 410, 190),
+('Fractal Design Meshify C', 100.00, 'Fractal Design', 'ATX', 315, 172),
+-- Workstation
+('Be Quiet! Dark Base Pro 900', 230.00, 'Be Quiet!', 'E-ATX', 472, 185),
+('Corsair Obsidian Series 1000D', 500.00, 'Corsair', 'E-ATX', 400, 170),
+('Thermaltake Core W200', 300.00, 'Thermaltake', 'E-ATX', 635, 200),
+('Fractal Design Define 7 XL', 200.00, 'Fractal Design', 'E-ATX', 359, 185),
+('Phanteks Enthoo Pro 2', 140.00, 'Phanteks', 'E-ATX', 503, 195),
+-- Editing
+('NZXT H710', 170.00, 'NZXT', 'ATX', 413, 185),
+('Cooler Master Cosmos C700P', 300.00, 'Cooler Master', 'E-ATX', 490, 198),
+('Corsair Crystal Series 680X', 250.00, 'Corsair', 'ATX', 330, 180),
+('Thermaltake Level 20 GT', 240.00, 'Thermaltake', 'E-ATX', 310, 200),
+('Fractal Design Define R6', 150.00, 'Fractal Design', 'ATX', 440, 185);
+
+
