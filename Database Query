@@ -1,0 +1,69 @@
+CREATE DATABASE ai_optibuild;
+
+USE ai_optibuild;
+
+CREATE TABLE graphics_cards (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    brand VARCHAR(50) NOT NULL,
+    model VARCHAR(50),
+    memory_size INT,
+    memory_type VARCHAR(50)
+);
+
+CREATE TABLE motherboards (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    brand VARCHAR(50) NOT NULL,
+    socket_type VARCHAR(50),
+    chipset VARCHAR(50)
+);
+
+CREATE TABLE processors (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    brand VARCHAR(50) NOT NULL,
+    cores INT,
+    threads INT,
+    base_clock DECIMAL(5, 2),
+    boost_clock DECIMAL(5, 2)
+);
+
+CREATE TABLE ram (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    brand VARCHAR(50) NOT NULL,
+    capacity INT,
+    type VARCHAR(50),
+    speed INT
+);
+
+CREATE TABLE storage (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    brand VARCHAR(50) NOT NULL,
+    type VARCHAR(50),
+    capacity INT
+);
+
+CREATE TABLE power_supplies (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    brand VARCHAR(50) NOT NULL,
+    wattage INT,
+    efficiency_rating VARCHAR(10)
+);
+
+CREATE TABLE cpu_coolers (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    brand VARCHAR(50) NOT NULL,
+    type VARCHAR(50)
+);
