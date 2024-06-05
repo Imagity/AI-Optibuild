@@ -2,84 +2,190 @@ USE ai_optibuild;
 
 -- Κάρτες Γραφικών (Graphics Cards)
 INSERT INTO graphics_cards (name, price, brand, model, memory_size, memory_type) VALUES
+-- Daily Use
 ('ASUS GeForce GT 710', 50.00, 'ASUS', 'GT 710', 2, 'DDR5'),
 ('MSI GeForce GT 730', 60.00, 'MSI', 'GT 730', 2, 'DDR5'),
+('Gigabyte GeForce GT 1030', 70.00, 'Gigabyte', 'GT 1030', 2, 'GDDR5'),
+('ZOTAC GeForce GT 1030', 75.00, 'ZOTAC', 'GT 1030', 2, 'GDDR5'),
+('EVGA GeForce GT 710', 55.00, 'EVGA', 'GT 710', 2, 'DDR5'),
+-- Gaming
 ('NVIDIA GeForce RTX 3060', 300.00, 'NVIDIA', 'RTX 3060', 12, 'GDDR6'),
 ('AMD Radeon RX 6700 XT', 350.00, 'AMD', 'RX 6700 XT', 12, 'GDDR6'),
+('MSI GeForce RTX 3070', 400.00, 'MSI', 'RTX 3070', 8, 'GDDR6'),
+('ASUS ROG Strix GeForce RTX 3080', 700.00, 'ASUS', 'RTX 3080', 10, 'GDDR6X'),
+('Gigabyte AORUS GeForce RTX 3090', 1500.00, 'Gigabyte', 'RTX 3090', 24, 'GDDR6X'),
+-- Workstation
 ('NVIDIA Quadro RTX 4000', 800.00, 'NVIDIA', 'RTX 4000', 8, 'GDDR6'),
+('AMD Radeon Pro WX 7100', 650.00, 'AMD', 'Pro WX 7100', 8, 'GDDR5'),
+('NVIDIA Quadro P2200', 420.00, 'NVIDIA', 'P2200', 5, 'GDDR5X'),
 ('AMD Radeon Pro W5700', 850.00, 'AMD', 'Pro W5700', 8, 'GDDR6'),
+('NVIDIA Quadro RTX 5000', 2000.00, 'NVIDIA', 'RTX 5000', 16, 'GDDR6'),
+-- Editing
 ('NVIDIA GeForce RTX 3070', 500.00, 'NVIDIA', 'RTX 3070', 8, 'GDDR6'),
 ('AMD Radeon RX 6800', 550.00, 'AMD', 'RX 6800', 16, 'GDDR6'),
-('NVIDIA GeForce RTX 3080', 580.00, 'NVIDIA', 'RTX 3080', 10, 'GDDR6X');
+('MSI GeForce RTX 3080', 600.00, 'MSI', 'RTX 3080', 10, 'GDDR6X'),
+('ASUS TUF Gaming GeForce RTX 3090', 1500.00, 'ASUS', 'RTX 3090', 24, 'GDDR6X'),
+('Gigabyte GeForce RTX 3080 Ti', 1300.00, 'Gigabyte', 'RTX 3080 Ti', 12, 'GDDR6X');
 
 -- Μητρικές (Motherboards)
 INSERT INTO motherboards (name, price, brand, socket_type, chipset) VALUES
+-- Daily Use
 ('ASUS PRIME A320M-K', 70.00, 'ASUS', 'AM4', 'A320'),
 ('Gigabyte H410M S2H', 80.00, 'Gigabyte', 'LGA1200', 'H410'),
+('MSI A320M-A PRO', 65.00, 'MSI', 'AM4', 'A320'),
+('ASRock H310CM-HDV', 60.00, 'ASRock', 'LGA1151', 'H310C'),
+('Biostar A320MH', 55.00, 'Biostar', 'AM4', 'A320'),
+-- Gaming
 ('ASUS ROG STRIX B450-F', 150.00, 'ASUS', 'AM4', 'B450'),
 ('MSI MPG Z490 Gaming Edge', 170.00, 'MSI', 'LGA1200', 'Z490'),
+('Gigabyte B550 AORUS ELITE', 160.00, 'Gigabyte', 'AM4', 'B550'),
+('ASRock B450M Steel Legend', 140.00, 'ASRock', 'AM4', 'B450'),
+('Biostar B550GTA', 130.00, 'Biostar', 'AM4', 'B550'),
+-- Workstation
 ('ASUS ProArt Z490-CREATOR', 250.00, 'ASUS', 'LGA1200', 'Z490'),
 ('MSI Creator TRX40', 270.00, 'MSI', 'sTRX4', 'TRX40'),
+('Gigabyte TRX40 AORUS MASTER', 350.00, 'Gigabyte', 'sTRX4', 'TRX40'),
+('ASRock X570 Creator', 300.00, 'ASRock', 'AM4', 'X570'),
+('Biostar Z490GTA EVO', 220.00, 'Biostar', 'LGA1200', 'Z490'),
+-- Editing
 ('ASUS TUF Gaming X570-PLUS', 200.00, 'ASUS', 'AM4', 'X570'),
 ('Gigabyte Z490 AORUS ULTRA', 220.00, 'Gigabyte', 'LGA1200', 'Z490'),
-('MSI MEG Z590 GODLIKE', 240.00, 'MSI', 'LGA1200', 'Z590');
+('MSI MEG Z590 GODLIKE', 240.00, 'MSI', 'LGA1200', 'Z590'),
+('ASRock X570 Taichi', 300.00, 'ASRock', 'AM4', 'X570'),
+('Biostar Z590 Valkyrie', 280.00, 'Biostar', 'LGA1200', 'Z590');
 
 -- Επεξεργαστές (Processors)
 INSERT INTO processors (name, price, brand, cores, threads, base_clock, boost_clock) VALUES
+-- Daily Use
 ('AMD Ryzen 3 3200G', 80.00, 'AMD', 4, 4, 3.6, 4.0),
 ('Intel Core i3-10100', 90.00, 'Intel', 4, 8, 3.6, 4.3),
+('AMD Athlon 3000G', 50.00, 'AMD', 2, 4, 3.5, 3.5),
+('Intel Pentium Gold G6400', 60.00, 'Intel', 2, 4, 4.0, 4.0),
+('AMD Ryzen 5 3400G', 100.00, 'AMD', 4, 8, 3.7, 4.2),
+-- Gaming
 ('AMD Ryzen 5 3600X', 300.00, 'AMD', 6, 12, 3.8, 4.4),
 ('Intel Core i5-10600K', 320.00, 'Intel', 6, 12, 4.1, 4.8),
 ('AMD Ryzen 7 3700X', 500.00, 'AMD', 8, 16, 3.6, 4.4),
 ('Intel Core i7-10700K', 550.00, 'Intel', 8, 16, 3.8, 5.1),
-('AMD Ryzen 9 3900X', 400.00, 'AMD', 12, 24, 3.8, 4.6),
-('Intel Core i9-10900K', 420.00, 'Intel', 10, 20, 3.7, 5.3),
-('AMD Ryzen 5 5600X', 440.00, 'AMD', 6, 12, 3.7, 4.6);
+('AMD Ryzen 9 3900X', 700.00, 'AMD', 12, 24, 3.8, 4.6),
+-- Workstation
+('AMD Ryzen Threadripper 3960X', 1400.00, 'AMD', 24, 48, 3.8, 4.5),
+('Intel Core i9-10980XE', 1000.00, 'Intel', 18, 36, 3.0, 4.6),
+('AMD Ryzen 9 3950X', 750.00, 'AMD', 16, 32, 3.5, 4.7),
+('Intel Core i9-10900X', 600.00, 'Intel', 10, 20, 3.7, 4.5),
+('AMD Ryzen Threadripper 3970X', 2000.00, 'AMD', 32, 64, 3.7, 4.5),
+-- Editing
+('AMD Ryzen 9 5900X', 550.00, 'AMD', 12, 24, 3.7, 4.8),
+('Intel Core i9-11900K', 600.00, 'Intel', 8, 16, 3.5, 5.3),
+('AMD Ryzen 7 5800X', 450.00, 'AMD', 8, 16, 3.8, 4.7),
+('Intel Core i7-11700K', 400.00, 'Intel', 8, 16, 3.6, 5.0),
+('AMD Ryzen 5 5600X', 300.00, 'AMD', 6, 12, 3.7, 4.6);
 
 -- RAM
 INSERT INTO ram (name, price, brand, capacity, type, speed) VALUES
+-- Daily Use
 ('Corsair Vengeance LPX 4GB', 30.00, 'Corsair', 4, 'DDR4', 2400),
 ('G.Skill Ripjaws V 4GB', 35.00, 'G.Skill', 4, 'DDR4', 2400),
+('Kingston HyperX Fury 4GB', 25.00, 'Kingston', 4, 'DDR4', 2133),
+('Crucial Ballistix Sport LT 4GB', 20.00, 'Crucial', 4, 'DDR4', 2400),
+('ADATA XPG Z1 4GB', 28.00, 'ADATA', 4, 'DDR4', 2400),
+-- Gaming
 ('Corsair Vengeance LPX 16GB', 80.00, 'Corsair', 16, 'DDR4', 3200),
 ('G.Skill Trident Z RGB 16GB', 90.00, 'G.Skill', 16, 'DDR4', 3200),
+('Kingston HyperX Predator 16GB', 85.00, 'Kingston', 16, 'DDR4', 3200),
+('Crucial Ballistix RGB 16GB', 75.00, 'Crucial', 16, 'DDR4', 3200),
+('ADATA XPG Spectrix D60G 16GB', 70.00, 'ADATA', 16, 'DDR4', 3200),
+-- Workstation
 ('Corsair Dominator Platinum 32GB', 150.00, 'Corsair', 32, 'DDR4', 3600),
 ('G.Skill Trident Z Neo 32GB', 160.00, 'G.Skill', 32, 'DDR4', 3600),
+('Kingston HyperX Fury 32GB', 140.00, 'Kingston', 32, 'DDR4', 3200),
+('Crucial Ballistix MAX 32GB', 130.00, 'Crucial', 32, 'DDR4', 4000),
+('ADATA XPG Gammix D30 32GB', 120.00, 'ADATA', 32, 'DDR4', 3200),
+-- Editing
 ('Corsair Vengeance RGB Pro 16GB', 100.00, 'Corsair', 16, 'DDR4', 3200),
 ('G.Skill Ripjaws V 16GB', 110.00, 'G.Skill', 16, 'DDR4', 3200),
-('Kingston HyperX Fury 16GB', 120.00, 'Kingston', 16, 'DDR4', 3200);
+('Kingston HyperX Fury 16GB', 120.00, 'Kingston', 16, 'DDR4', 3200),
+('Crucial Ballistix 16GB', 115.00, 'Crucial', 16, 'DDR4', 3200),
+('ADATA XPG Spectrix D80 16GB', 105.00, 'ADATA', 16, 'DDR4', 3600);
 
 -- Αποθήκευση (Storage)
 INSERT INTO storage (name, price, brand, type, capacity) VALUES
+-- Daily Use
 ('Samsung 860 EVO 250GB', 40.00, 'Samsung', 'SSD', 250),
 ('Kingston A2000 250GB', 45.00, 'Kingston', 'SSD', 250),
+('Crucial MX500 250GB', 35.00, 'Crucial', 'SSD', 250),
+('Western Digital Blue 250GB', 30.00, 'Western Digital', 'SSD', 250),
+('ADATA SU650 240GB', 25.00, 'ADATA', 'SSD', 240),
+-- Gaming
 ('Samsung 970 EVO Plus 500GB', 100.00, 'Samsung', 'SSD', 500),
 ('Western Digital Black SN750 500GB', 110.00, 'Western Digital', 'SSD', 500),
+('Crucial P1 500GB', 90.00, 'Crucial', 'SSD', 500),
+('Kingston KC2500 500GB', 95.00, 'Kingston', 'SSD', 500),
+('ADATA XPG SX8200 Pro 512GB', 85.00, 'ADATA', 'SSD', 512),
+-- Workstation
 ('Samsung 970 EVO Plus 1TB', 200.00, 'Samsung', 'SSD', 1000),
 ('Western Digital Black SN750 1TB', 220.00, 'Western Digital', 'SSD', 1000),
+('Crucial P1 1TB', 180.00, 'Crucial', 'SSD', 1000),
+('Kingston KC2500 1TB', 190.00, 'Kingston', 'SSD', 1000),
+('ADATA XPG SX8200 Pro 1TB', 170.00, 'ADATA', 'SSD', 1000),
+-- Editing
 ('Crucial MX500 500GB', 150.00, 'Crucial', 'SSD', 500),
 ('Samsung 860 EVO 500GB', 160.00, 'Samsung', 'SSD', 500),
-('Kingston A2000 500GB', 170.00, 'Kingston', 'SSD', 500);
+('Kingston A2000 500GB', 170.00, 'Kingston', 'SSD', 500),
+('Western Digital Blue 500GB', 140.00, 'Western Digital', 'SSD', 500),
+('ADATA SU650 480GB', 130.00, 'ADATA', 'SSD', 480);
 
 -- Τροφοδοτικά (Power Supplies)
 INSERT INTO power_supplies (name, price, brand, wattage, efficiency_rating) VALUES
+-- Daily Use
 ('Corsair CX450', 50.00, 'Corsair', 450, '80+ Bronze'),
 ('EVGA 450 BR', 55.00, 'EVGA', 450, '80+ Bronze'),
+('Cooler Master MasterWatt 450', 60.00, 'Cooler Master', 450, '80+ Bronze'),
+('Thermaltake Smart 500W', 40.00, 'Thermaltake', 500, '80+'),
+('Seasonic S12III 500W', 45.00, 'Seasonic', 500, '80+ Bronze'),
+-- Gaming
 ('Corsair RM650x', 100.00, 'Corsair', 650, '80+ Gold'),
 ('Seasonic Focus GX-650', 110.00, 'Seasonic', 650, '80+ Gold'),
+('EVGA SuperNOVA 650 G5', 120.00, 'EVGA', 650, '80+ Gold'),
+('Cooler Master MWE Gold 650', 130.00, 'Cooler Master', 650, '80+ Gold'),
+('Thermaltake Toughpower GF1 650W', 115.00, 'Thermaltake', 650, '80+ Gold'),
+-- Workstation
 ('Corsair HX750', 150.00, 'Corsair', 750, '80+ Platinum'),
 ('EVGA SuperNOVA 750 P2', 160.00, 'EVGA', 750, '80+ Platinum'),
+('Seasonic Prime Platinum 750W', 170.00, 'Seasonic', 750, '80+ Platinum'),
+('Cooler Master V750', 140.00, 'Cooler Master', 750, '80+ Gold'),
+('Thermaltake Toughpower PF1 750W', 155.00, 'Thermaltake', 750, '80+ Platinum'),
+-- Editing
 ('Corsair RM650', 120.00, 'Corsair', 650, '80+ Gold'),
 ('Seasonic Focus GX-650', 130.00, 'Seasonic', 650, '80+ Gold'),
-('EVGA 650 GQ', 140.00, 'EVGA', 650, '80+ Gold');
+('EVGA 650 GQ', 140.00, 'EVGA', 650, '80+ Gold'),
+('Cooler Master V650', 135.00, 'Cooler Master', 650, '80+ Gold'),
+('Thermaltake Smart Pro RGB 650W', 125.00, 'Thermaltake', 650, '80+ Bronze');
 
 -- Ψύκτρες CPU (CPU Coolers)
 INSERT INTO cpu_coolers (name, price, brand, type) VALUES
+-- Daily Use
 ('Cooler Master Hyper 212 EVO', 20.00, 'Cooler Master', 'Air'),
 ('Noctua NH-U12S', 25.00, 'Noctua', 'Air'),
-('Corsair H100i RGB Platinum', 70.00, 'Corsair', 'Liquid'),
-('NZXT Kraken X62', 80.00, 'NZXT', 'Liquid'),
-('Corsair H150i PRO RGB', 90.00, 'Corsair', 'Liquid'),
-('NZXT Kraken Z73', 100.00, 'NZXT', 'Liquid'),
-('Cooler Master MasterLiquid ML240L', 50.00, 'Cooler Master', 'Liquid'),
-('Corsair H115i RGB Platinum', 55.00, 'Corsair', 'Liquid'),
-('Noctua NH-D15', 60.00, 'Noctua', 'Liquid');
+('ARCTIC Freezer 7X', 15.00, 'ARCTIC', 'Air'),
+('be quiet! Pure Rock Slim', 18.00, 'be quiet!', 'Air'),
+('Thermaltake UX100', 10.00, 'Thermaltake', 'Air'),
+-- Gaming
+('Cooler Master MasterLiquid ML240L', 60.00, 'Cooler Master', 'Liquid'),
+('NZXT Kraken X53', 100.00, 'NZXT', 'Liquid'),
+('Corsair H100i RGB Platinum', 120.00, 'Corsair', 'Liquid'),
+('be quiet! Dark Rock Pro 4', 80.00, 'be quiet!', 'Air'),
+('Noctua NH-D15', 90.00, 'Noctua', 'Air'),
+-- Workstation
+('Corsair iCUE H150i Elite Capellix', 200.00, 'Corsair', 'Liquid'),
+('NZXT Kraken Z73', 250.00, 'NZXT', 'Liquid'),
+('be quiet! Dark Rock TF', 100.00, 'be quiet!', 'Air'),
+('Noctua NH-U14S', 70.00, 'Noctua', 'Air'),
+('Cooler Master MasterAir MA620M', 90.00, 'Cooler Master', 'Air'),
+-- Editing
+('Cooler Master MasterLiquid ML360R', 150.00, 'Cooler Master', 'Liquid'),
+('Corsair H150i PRO', 170.00, 'Corsair', 'Liquid'),
+('NZXT Kraken X73', 180.00, 'NZXT', 'Liquid'),
+('be quiet! Shadow Rock 3', 50.00, 'be quiet!', 'Air'),
+('Noctua NH-L9i', 45.00, 'Noctua', 'Air');
+
