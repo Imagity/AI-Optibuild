@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Optibuild</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #f4f4f4, #eaeaea);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/asfalt-dark.png'), linear-gradient(to bottom right, #444, #000);
+            z-index: -1;
+            animation: moveBackground 10s linear infinite;
+        }
+
+        @keyframes moveBackground {
+            0% { background-position: 0 0; }
+            100% { background-position: 100% 100%; }
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #333;
+            color: #fff;
+            border-radius: 8px 8px 0 0;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input, select, button {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        #results {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #results h3 {
+            margin-top: 0;
+        }
+
+        #results ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #results li {
+            padding: 5px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        #results li:last-child {
+            border-bottom: none;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            width: 250px;
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+            border-radius: 0 8px 8px 0;
+            overflow-y: auto;
+            max-height: 80%;
+        }
+
+        .sidebar img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .sidebar h3 {
+            margin-top: 0;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar li {
+            padding: 10px 0;
+        }
+
+        .sidebar-right {
+            left: auto;
+            right: 0;
+            border-radius: 8px 0 0 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="sidebar">
+        <h3>Προτάσεις για Gaming</h3>
+        <img src="aiii gaming.jpg" alt="Gaming PC">
+        <ul>
+            <li><strong>CPU:</strong> Ισχυρός επεξεργαστής όπως AMD Ryzen 5 ή Intel Core i5 (περίπου €200)</li>
+            <li><strong>GPU:</strong> Κάρτα γραφικών υψηλής απόδοσης όπως NVIDIA RTX 3060 (περίπου €400)</li>
+            <li><strong>RAM:</strong> Τουλάχιστον 16GB για ομαλό gaming (περίπου €80)</li>
+            <li><strong>Storage:</strong> Γρήγορο SSD για ταχύτερους χρόνους φόρτωσης (1TB NVMe SSD, περίπου €100)</li>
+            <li><strong>PSU:</strong> Ισχυρό τροφοδοτικό με επαρκή watt (650W 80+ Gold, περίπου €70)</li>
+        </ul>
+    </div>
+    <div class="sidebar sidebar-right">
+        <h3>Προτάσεις για Workstation</h3>
+        <img src="workk.jpg" alt="Workstation PC">
+        <ul>
+            <li><strong>CPU:</strong> Πολυπύρηνος επεξεργαστής όπως Intel Core i7 ή AMD Ryzen 7 (περίπου €300)</li>
+            <li><strong>GPU:</strong> Επαγγελματική κάρτα γραφικών όπως NVIDIA Quadro (περίπου €500)</li>
+            <li><strong>RAM:</strong> 32GB ή περισσότερο για απαιτητικές εφαρμογές (περίπου €160)</li>
+            <li><strong>Storage:</strong> Συνδυασμός SSD για λειτουργικό και HDD για αποθήκευση (1TB NVMe SSD + 2TB HDD, περίπου €150)</li>
+            <li><strong>PSU:</strong> Τροφοδοτικό με υψηλή απόδοση και σταθερότητα (750W 80+ Gold, περίπου €90)</li>
+        </ul>
+    </div>
+    <div class="container">
+        <header>
+            <h1>AI-Optibuild</h1>
+            <p>Βρείτε τα ιδανικά εξαρτήματα για την κατασκευή του υπολογιστικού σας συστήματος</p>
+        </header>
+        
+        <main>
+            <form id="optibuildForm">
+                <label for="budget">Προϋπολογισμός (€):</label>
+                <input type="number" id="budget" name="budget" required>
+
+                <label for="performance">Επίδοση:</label>
+                <select id="performance" name="performance" required>
+                    <option value="gaming">Gaming</option>
+                    <option value="workstation">Workstation</option>
+                    <option value="general">Γενική χρήση</option>
+                </select>
+
+                <button type="submit">Προτείνετε εξαρτήματα</button>
+            </form>
+            <div id="results"></div>
+        </main>
+    </div>
+    
+    <script>
+        document.getElementById('optibuildForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const budget = document.getElementById('budget').value;
+            const performance = document.getElementById('performance').value;
+            const resultsDiv = document.getElementById('results');
+            
+            let recommendations = [];
+            
+            if (performance === 'gaming') {
+                recommendations = [
+                    'CPU: AMD Ryzen 5 5600X (€200)',
+                    'GPU: NVIDIA GeForce RTX 3060 (€400)',
+                    'RAM: 16GB DDR4 (€80)',
+                    'Motherboard: MSI B450 TOMAHAWK (€100)',
+                    'Storage: 1TB NVMe SSD (€100)',
+                    'Power Supply: 650W 80+ Gold (€70)',
+                ];
+            } else if (performance === 'workstation') {
+                recommendations = [
+                    'CPU: Intel Core i7-10700K (€300)',
+                    'GPU: NVIDIA Quadro P2200 (€500)',
+                    'RAM: 32GB DDR4 (€160)',
+                    'Motherboard: ASUS Prime Z490-A (€150)',
+                    'Storage: 1TB NVMe SSD + 2TB HDD (€150)',
+                    'Power Supply: 750W 80+ Gold (€90)',
+                ];
+            } else if (performance === 'general') {
+                recommendations = [
+                    'CPU: AMD Ryzen 5 3600 (€180)',
+                    'GPU: NVIDIA GeForce GTX 1650 (€150)',
+                    'RAM: 16GB DDR4 (€80)',
+                    'Motherboard: Gigabyte B450M DS3H (€60)',
+                    'Storage: 512GB NVMe SSD (€60)',
+                    'Power Supply: 550W 80+ Bronze (€50)',
+                ];
+            }
+            
+            resultsDiv.innerHTML = `
+                <h3>Προτάσεις εξαρτημάτων:</h3>
+                <ul>
+                    ${recommendations.map(item => `<li>${item}</li>`).join('')}
+                </ul>
+            `;
+        });
+    </script>
+</body>
+</html>
