@@ -77,3 +77,16 @@ CREATE TABLE pc_cases (
     max_gpu_length INT,
     max_cpu_cooler_height INT
 );
+
+
+
+********************
+ALTER TABLE graphics_cards ADD COLUMN img VARCHAR(255);
+ALTER TABLE motherboards ADD COLUMN img VARCHAR(255);
+ALTER TABLE processors ADD COLUMN img VARCHAR(255);
+ALTER TABLE ram ADD COLUMN img VARCHAR(255);
+ALTER TABLE storage ADD COLUMN img VARCHAR(255);
+ALTER TABLE power_supplies ADD COLUMN img VARCHAR(255);
+ALTER TABLE cpu_coolers ADD COLUMN img VARCHAR(255);
+ALTER TABLE pc_cases ADD COLUMN img VARCHAR(255);
+********************
