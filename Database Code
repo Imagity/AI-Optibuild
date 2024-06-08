@@ -78,6 +78,28 @@ CREATE TABLE pc_cases (
     max_cpu_cooler_height INT
 );
 
+CREATE TABLE builds (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    type ENUM('Daily Use', 'Gaming', 'Workstation', 'Editing') NOT NULL,
+    graphics_card_id INT,
+    motherboard_id INT,
+    processor_id INT,
+    ram_id INT,
+    storage_id INT,
+    power_supply_id INT,
+    cpu_cooler_id INT,
+    pc_case_id INT,
+    FOREIGN KEY (graphics_card_id) REFERENCES graphics_cards(id),
+    FOREIGN KEY (motherboard_id) REFERENCES motherboards(id),
+    FOREIGN KEY (processor_id) REFERENCES processors(id),
+    FOREIGN KEY (ram_id) REFERENCES ram(id),
+    FOREIGN KEY (storage_id) REFERENCES storage(id),
+    FOREIGN KEY (power_supply_id) REFERENCES power_supplies(id),
+    FOREIGN KEY (cpu_cooler_id) REFERENCES cpu_coolers(id),
+    FOREIGN KEY (pc_case_id) REFERENCES pc_cases(id)
+);
+
 
 
 ********************
