@@ -200,51 +200,171 @@
     </div>
     
     <script>
-        document.getElementById('optibuildForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            
-            const budget = document.getElementById('budget').value;
-            const performance = document.getElementById('performance').value;
-            const resultsDiv = document.getElementById('results');
-            
-            let recommendations = [];
-            
-            if (performance === 'gaming') {
-                recommendations = [
-                    'CPU: AMD Ryzen 5 5600X (€200)',
-                    'GPU: NVIDIA GeForce RTX 3060 (€400)',
-                    'RAM: 16GB DDR4 (€80)',
-                    'Motherboard: MSI B450 TOMAHAWK (€100)',
-                    'Storage: 1TB NVMe SSD (€100)',
-                    'Power Supply: 650W 80+ Gold (€70)',
-                ];
-            } else if (performance === 'workstation') {
-                recommendations = [
-                    'CPU: Intel Core i7-10700K (€300)',
-                    'GPU: NVIDIA Quadro P2200 (€500)',
-                    'RAM: 32GB DDR4 (€160)',
-                    'Motherboard: ASUS Prime Z490-A (€150)',
-                    'Storage: 1TB NVMe SSD + 2TB HDD (€150)',
-                    'Power Supply: 750W 80+ Gold (€90)',
-                ];
-            } else if (performance === 'general') {
-                recommendations = [
-                    'CPU: AMD Ryzen 5 3600 (€180)',
-                    'GPU: NVIDIA GeForce GTX 1650 (€150)',
-                    'RAM: 16GB DDR4 (€80)',
-                    'Motherboard: Gigabyte B450M DS3H (€60)',
-                    'Storage: 512GB NVMe SSD (€60)',
-                    'Power Supply: 550W 80+ Bronze (€50)',
-                ];
+document.getElementById('optibuildForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const budget = parseFloat(document.getElementById('budget').value);
+    const performance = document.getElementById('performance').value;
+    const resultsDiv = document.getElementById('results');
+    
+    let recommendations = [];
+    let totalCost = 0;
+
+    const components = {
+        gaming: [
+            { type: 'GPU', options: [
+                { name: 'NVIDIA GeForce GTX 1650', price: 150 },
+                { name: 'NVIDIA GeForce GTX 1660', price: 250 },
+                { name: 'NVIDIA GeForce RTX 3060', price: 400 }
+            ]},
+            { type: 'CPU', options: [
+                { name: 'AMD Ryzen 3 3100', price: 100 },
+                { name: 'AMD Ryzen 5 3600', price: 180 },
+                { name: 'Intel Core i5-10400F', price: 150 }
+            ]},
+            { type: 'RAM', options: [
+                { name: '8GB DDR4', price: 40 },
+                { name: '16GB DDR4', price: 80 },
+                { name: '32GB DDR4', price: 160 }
+            ]},
+            { type: 'Motherboard', options: [
+                { name: 'MSI B450M PRO-VDH MAX', price: 60 },
+                { name: 'ASUS Prime B450M-A', price: 70 },
+                { name: 'Gigabyte B450 AORUS M', price: 80 }
+            ]},
+            { type: 'Storage', options: [
+                { name: '512GB NVMe SSD', price: 50 },
+                { name: '1TB NVMe SSD', price: 100 },
+                { name: '2TB HDD', price: 60 }
+            ]},
+            { type: 'Power Supply', options: [
+                { name: '450W 80+ Bronze', price: 40 },
+                { name: '550W 80+ Bronze', price: 50 },
+                { name: '650W 80+ Gold', price: 70 }
+            ]}
+        ],
+        workstation: [
+            { type: 'GPU', options: [
+                { name: 'NVIDIA Quadro P620', price: 200 },
+                { name: 'NVIDIA Quadro RTX 4000', price: 900 },
+                { name: 'NVIDIA Quadro RTX 5000', price: 1500 }
+            ]},
+            { type: 'CPU', options: [
+                { name: 'Intel Core i5-10400', price: 150 },
+                { name: 'Intel Core i7-10700K', price: 300 },
+                { name: 'AMD Ryzen 9 5900X', price: 450 }
+            ]},
+            { type: 'RAM', options: [
+                { name: '16GB DDR4', price: 80 },
+                { name: '32GB DDR4', price: 160 },
+                { name: '64GB DDR4', price: 300 }
+            ]},
+            { type: 'Motherboard', options: [
+                { name: 'ASUS Prime B460M-A', price: 70 },
+                { name: 'ASUS Prime Z490-A', price: 150 },
+                { name: 'MSI MAG B550 TOMAHAWK', price: 180 }
+            ]},
+            { type: 'Storage', options: [
+                { name: '1TB NVMe SSD', price: 100 },
+                { name: '1TB NVMe SSD + 2TB HDD', price: 150 },
+                { name: '2TB NVMe SSD + 4TB HDD', price: 300 }
+            ]},
+            { type: 'Power Supply', options: [
+                { name: '550W 80+ Bronze', price: 50 },
+                { name: '750W 80+ Gold', price: 90 },
+                { name: '850W 80+ Platinum', price: 150 }
+            ]}
+        ],
+        general: [
+            { type: 'GPU', options: [
+                { name: 'Integrated Graphics', price: 0 },
+                { name: 'NVIDIA GeForce GTX 1650', price: 150 },
+                { name: 'NVIDIA GeForce GTX 1660', price: 250 }
+            ]},
+            { type: 'CPU', options: [
+                { name: 'AMD Ryzen 3 3200G', price: 90 },
+                { name: 'AMD Ryzen 5 3600', price: 180 },
+                { name: 'Intel Core i5-10400F', price: 150 }
+            ]},
+            { type: 'RAM', options: [
+                { name: '8GB DDR4', price: 40 },
+                { name: '16GB DDR4', price: 80 },
+                { name: '32GB DDR4', price: 160 }
+            ]},
+            { type: 'Motherboard', options: [
+                { name: 'ASRock B450M PRO4', price: 60 },
+                { name: 'Gigabyte B450M DS3H', price: 60 },
+                { name: 'MSI B450 TOMAHAWK MAX', price: 100 }
+            ]},
+            { type: 'Storage', options: [
+                { name: '512GB NVMe SSD', price: 50 },
+                { name: '1TB NVMe SSD', price: 100 },
+                { name: '2TB HDD', price: 60 }
+            ]},
+            { type: 'Power Supply', options: [
+                { name: '450W 80+ Bronze', price: 40 },
+                { name: '550W 80+ Bronze', price: 50 },
+                { name: '650W 80+ Gold', price: 70 }
+            ]}
+        ]
+    };
+
+    // Function to find the best component within the budget
+    function findBestComponent(options, remainingBudget) {
+        let bestComponent = null;
+        for (let i = options.length - 1; i >= 0; i--) {
+            if (options[i].price <= remainingBudget) {
+                bestComponent = options[i];
+                break; // Found the best component within budget
             }
-            
-            resultsDiv.innerHTML = `
-                <h3>Προτάσεις εξαρτημάτων:</h3>
-                <ul>
-                    ${recommendations.map(item => `<li>${item}</li>`).join('')}
-                </ul>
-            `;
-        });
+        }
+        return bestComponent;
+    }
+
+    // Allocate 40% of budget to GPU for gaming or workstation
+    let gpuBudget = 0;
+    if (performance === 'gaming' || performance === 'workstation') {
+        gpuBudget = budget * 0.4;
+    }
+
+    // Find best GPU within allocated budget
+    if (gpuBudget > 0) {
+        const gpuOptions = components[performance].find(component => component.type === 'GPU').options;
+        const bestGPU = findBestComponent(gpuOptions, gpuBudget);
+        if (bestGPU) {
+            recommendations.push(`${bestGPU.name} (€${bestGPU.price})`);
+            totalCost += bestGPU.price;
+        } else {
+            recommendations.push(`No suitable GPU within budget`);
+        }
+    }
+
+    // Remaining budget after GPU allocation
+    const remainingBudget = budget - totalCost;
+
+    // Distribute remaining budget among other components
+    components[performance].forEach(component => {
+        if (component.type !== 'GPU') {
+            const bestComponent = findBestComponent(component.options, remainingBudget);
+            if (bestComponent) {
+                recommendations.push(`${component.type}: ${bestComponent.name} (€${bestComponent.price})`);
+                totalCost += bestComponent.price;
+            } else {
+                recommendations.push(`${component.type}: Not enough budget`);
+            }
+        }
+    });
+
+    // Display recommendations and total cost
+    resultsDiv.innerHTML = `
+        <h3>Προτάσεις εξαρτημάτων:</h3>
+        <ul>
+            ${recommendations.map(item => `<li>${item}</li>`).join('')}
+        </ul>
+        <p>Συνολικό κόστος: €${totalCost}</p>
+    `;
+});
+
     </script>
 </body>
 </html>
