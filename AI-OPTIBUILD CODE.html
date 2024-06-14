@@ -184,7 +184,7 @@
         <main>
             <form id="optibuildForm">
                 <label for="budget">Προϋπολογισμός (€):</label>
-                <input type="number" id="budget" name="budget" required min="0" max="5000">
+                <input type="number" id="budget" name="budget" required min="0" max="5000" maxlength="4" oninput="limitInputLength(this, 4)">
 
                 <label for="performance">Επίδοση:</label>
                 <select id="performance" name="performance" required>
@@ -200,6 +200,25 @@
     </div>
     
     <script>
+function limitInputLength(input, maxLength) {
+    if (input.value.length > maxLength) {
+        input.value = input.value.slice(0, maxLength);
+    }
+}
+
+document.getElementById('optibuildForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const budget = parseInt(document.getElementById('budget').value);
+    if (isNaN(budget)) {
+        alert("Please enter a valid budget.");
+        return;
+    }
+
+    const performance = document.getElementById('performance').value;
+
+    // Rest of your form submission logic
+});        
 const componentData = {
     gaming: [
         { type: 'GPU', options: [
