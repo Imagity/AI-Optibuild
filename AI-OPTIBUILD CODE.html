@@ -220,78 +220,225 @@ document.getElementById('optibuildForm').addEventListener('submit', function(eve
     // Rest of your form submission logic
 });        
 const componentData = {
-    gaming: [
-        { type: 'GPU', options: [
-            { name: 'NVIDIA GeForce GTX 1050 Ti', price: 150 },
-            { name: 'NVIDIA GeForce GTX 1660 Ti', price: 300 },
-            { name: 'NVIDIA GeForce RTX 3060', price: 400 },
-            { name: 'NVIDIA GeForce RTX 3070', price: 600 },
-            { name: 'NVIDIA GeForce RTX 3080', price: 800 },
-            { name: 'NVIDIA GeForce RTX 4080 Super', price: 1500 }
-        ]},
-        { type: 'CPU', options: [
-            { name: 'AMD Ryzen 5 3600', price: 180 },
-            { name: 'AMD Ryzen 7 3700X', price: 300 },
-            { name: 'Intel Core i5-10400F', price: 150 },
-            { name: 'Intel Core i7-10700K', price: 300 },
-            { name: 'AMD Ryzen 9 5900X', price: 450 },
-            { name: 'Intel Core i9-10900K', price: 500 },
-            { name: 'AMD Ryzen 5 5600X', price: 250 },
-            { name: 'Intel Core i5-11600K', price: 270 },
-            { name: 'Intel Core i7-11700K', price: 400 },
-            { name: 'AMD Ryzen 7 5800X', price: 450 }
-        ]},
-        { type: 'RAM', options: [
-            { name: '8GB DDR4', price: 40 },
-            { name: '16GB DDR4', price: 80 },
-            { name: '32GB DDR4', price: 160 },
-            { name: '16GB DDR4 3600MHz', price: 100 },
-            { name: '32GB DDR4 3600MHz', price: 200 },
-            { name: '64GB DDR4', price: 300 },
-            { name: '32GB DDR5', price: 250 },
-            { name: '64GB DDR5', price: 500 },
-            { name: '16GB DDR5', price: 120 },
-            { name: '8GB DDR5', price: 80 }
-        ]},
-        { type: 'Motherboard', options: [
-            { name: 'MSI B450M PRO-VDH MAX', price: 60 },
-            { name: 'ASUS Prime B450M-A', price: 70 },
-            { name: 'Gigabyte B450 AORUS M', price: 80 },
-            { name: 'ASRock B550M Steel Legend', price: 110 },
-            { name: 'MSI MAG B550 TOMAHAWK', price: 180 },
-            { name: 'ASUS ROG Strix B550-F Gaming', price: 200 },
-            { name: 'Gigabyte X570 AORUS Elite', price: 220 },
-            { name: 'MSI MPG Z490 Gaming Edge WiFi', price: 190 },
-            { name: 'ASUS TUF Gaming X570-Plus', price: 210 },
-            { name: 'ASRock B550 Phantom Gaming 4', price: 130 }
-        ]},
-        { type: 'Storage', options: [
-            { name: '512GB NVMe SSD', price: 50 },
-            { name: '1TB NVMe SSD', price: 100 },
-            { name: '2TB HDD', price: 60 },
-            { name: '500GB NVMe SSD + 1TB HDD', price: 110 },
-            { name: '1TB NVMe SSD + 2TB HDD', price: 150 },
-            { name: '2TB NVMe SSD', price: 200 },
-            { name: '2TB NVMe SSD + 4TB HDD', price: 300 },
-            { name: '4TB NVMe SSD', price: 400 },
-            { name: '1TB SATA SSD', price: 90 },
-            { name: '2TB SATA SSD', price: 180 }
-        ]},
-        { type: 'Power Supply', options: [
-            { name: '450W 80+ Bronze', price: 40 },
-            { name: '550W 80+ Bronze', price: 50 },
-            { name: '650W 80+ Gold', price: 70 },
-            { name: '750W 80+ Gold', price: 90 },
-            { name: '850W 80+ Platinum', price: 150 },
-            { name: '1000W 80+ Gold', price: 180 },
-            { name: '1200W 80+ Platinum', price: 250 },
-            { name: '600W 80+ Bronze', price: 60 },
-            { name: '700W 80+ Silver', price: 100 },
-            { name: '900W 80+ Gold', price: 170 }
-        ]}
-    ],
-    // Add workstation and general categories as well
-};
+            gaming: [
+                { type: 'GPU', options: [
+                    { name: 'NVIDIA GeForce GTX 1050 Ti', price: 150 },
+                    { name: 'NVIDIA GeForce GTX 1660 Ti', price: 300 },
+                    { name: 'NVIDIA GeForce RTX 3060', price: 400 },
+                    { name: 'NVIDIA GeForce RTX 3070', price: 600 },
+                    { name: 'NVIDIA GeForce RTX 3080', price: 800 },
+                    { name: 'NVIDIA GeForce RTX 4080 Super', price: 1500 }
+                ]},
+                { type: 'CPU', options: [
+                    { name: 'AMD Ryzen 5 3600', price: 180 },
+                    { name: 'AMD Ryzen 7 3700X', price: 300 },
+                    { name: 'Intel Core i5-10400F', price: 150 },
+                    { name: 'Intel Core i7-10700K', price: 300 },
+                    { name: 'AMD Ryzen 9 5900X', price: 450 },
+                    { name: 'Intel Core i9-10900K', price: 500 },
+                    { name: 'AMD Ryzen 5 5600X', price: 250 },
+                    { name: 'Intel Core i5-11600K', price: 270 },
+                    { name: 'Intel Core i7-11700K', price: 400 },
+                    { name: 'AMD Ryzen 7 5800X', price: 450 }
+                ]},
+                { type: 'RAM', options: [
+                    { name: '8GB DDR4', price: 40 },
+                    { name: '16GB DDR4', price: 80 },
+                    { name: '32GB DDR4', price: 160 },
+                    { name: '16GB DDR4 3600MHz', price: 100 },
+                    { name: '32GB DDR4 3600MHz', price: 200 },
+                    { name: '64GB DDR4', price: 300 },
+                    { name: '32GB DDR5', price: 250 },
+                    { name: '64GB DDR5', price: 500 },
+                    { name: '16GB DDR5', price: 120 },
+                    { name: '8GB DDR5', price: 80 }
+                ]},
+                { type: 'Motherboard', options: [
+                    { name: 'MSI B450M PRO-VDH MAX', price: 60 },
+                    { name: 'ASUS Prime B450M-A', price: 70 },
+                    { name: 'Gigabyte B450 AORUS M', price: 80 },
+                    { name: 'ASRock B550M Steel Legend', price: 110 },
+                    { name: 'MSI MAG B550 TOMAHAWK', price: 180 },
+                    { name: 'ASUS ROG Strix B550-F Gaming', price: 200 },
+                    { name: 'Gigabyte X570 AORUS Elite', price: 220 },
+                    { name: 'MSI MPG Z490 Gaming Edge WiFi', price: 190 },
+                    { name: 'ASUS TUF Gaming X570-Plus', price: 210 },
+                    { name: 'ASRock B550 Phantom Gaming 4', price: 130 }
+                ]},
+                { type: 'Storage', options: [
+                    { name: '512GB NVMe SSD', price: 50 },
+                    { name: '1TB NVMe SSD', price: 100 },
+                    { name: '2TB HDD', price: 60 },
+                    { name: '500GB NVMe SSD + 1TB HDD', price: 110 },
+                    { name: '1TB NVMe SSD + 2TB HDD', price: 150 },
+                    { name: '2TB NVMe SSD', price: 200 },
+                    { name: '2TB NVMe SSD + 4TB HDD', price: 300 },
+                    { name: '4TB NVMe SSD', price: 400 },
+                    { name: '1TB SATA SSD', price: 90 },
+                    { name: '2TB SATA SSD', price: 180 }
+                ]},
+                { type: 'Power Supply', options: [
+                    { name: '450W 80+ Bronze', price: 40 },
+                    { name: '550W 80+ Bronze', price: 50 },
+                    { name: '650W 80+ Gold', price: 70 },
+                    { name: '750W 80+ Gold', price: 90 },
+                    { name: '850W 80+ Platinum', price: 150 },
+                    { name: '1000W 80+ Gold', price: 180 },
+                    { name: '1200W 80+ Platinum', price: 250 },
+                    { name: '600W 80+ Bronze', price: 60 },
+                    { name: '700W 80+ Silver', price: 100 },
+                    { name: '900W 80+ Gold', price: 170 }
+                ]}
+            ],
+            workstation: [
+                { type: 'GPU', options: [
+                    { name: 'NVIDIA Quadro P620', price: 200 },
+                    { name: 'NVIDIA Quadro RTX 4000', price: 900 },
+                    { name: 'NVIDIA Quadro RTX 5000', price: 1500 },
+                    { name: 'NVIDIA Quadro P2200', price: 450 },
+                    { name: 'NVIDIA Quadro RTX 6000', price: 3000 },
+                    { name: 'NVIDIA Quadro RTX 8000', price: 5000 },
+                    { name: 'NVIDIA RTX A4000', price: 1000 },
+                    { name: 'NVIDIA RTX A5000', price: 2000 },
+                    { name: 'AMD Radeon Pro WX 5100', price: 400 },
+                    { name: 'AMD Radeon Pro W5700', price: 800 }
+                ]},
+                { type: 'CPU', options: [
+                    { name: 'Intel Core i5-10400', price: 150 },
+                    { name: 'Intel Core i7-10700K', price: 300 },
+                    { name: 'AMD Ryzen 9 5900X', price: 450 },
+                    { name: 'Intel Core i9-10900K', price: 500 },
+                    { name: 'AMD Ryzen 7 3700X', price: 300 },
+                    { name: 'Intel Core i9-11900K', price: 550 },
+                    { name: 'AMD Ryzen 5 5600X', price: 250 },
+                    { name: 'Intel Core i7-11700K', price: 400 },
+                    { name: 'AMD Ryzen Threadripper 3960X', price: 1500 },
+                    { name: 'AMD Ryzen Threadripper 3970X', price: 2000 }
+                ]},
+                { type: 'RAM', options: [
+                    { name: '16GB DDR4', price: 80 },
+                    { name: '32GB DDR4', price: 160 },
+                    { name: '64GB DDR4', price: 300 },
+                    { name: '128GB DDR4', price: 600 },
+                    { name: '256GB DDR4', price: 1200 },
+                    { name: '32GB DDR4 3200MHz', price: 180 },
+                    { name: '64GB DDR4 3200MHz', price: 340 },
+                    { name: '128GB DDR4 3600MHz', price: 650 },
+                    { name: '256GB DDR4 3600MHz', price: 1300 },
+                    { name: '32GB DDR5', price: 250 }
+                ]},
+                { type: 'Motherboard', options: [
+                    { name: 'ASUS Prime B460M-A', price: 70 },
+                    { name: 'ASUS Prime Z490-A', price: 150 },
+                    { name: 'MSI MAG B550 TOMAHAWK', price: 180 },
+                    { name: 'ASUS ProArt Z490-CREATOR', price: 250 },
+                    { name: 'Gigabyte Z590 AORUS Elite', price: 230 },
+                    { name: 'MSI MEG Z490 GODLIKE', price: 700 },
+                    { name: 'ASRock X570 Taichi', price: 300 },
+                    { name: 'ASUS Pro WS X570-ACE', price: 350 },
+                    { name: 'Gigabyte X570 AORUS Master', price: 360 },
+                    { name: 'ASRock X299 Taichi', price: 400 }
+                ]},
+                { type: 'Storage', options: [
+                    { name: '1TB NVMe SSD', price: 100 },
+                    { name: '2TB NVMe SSD', price: 200 },
+                    { name: '4TB NVMe SSD', price: 400 },
+                    { name: '8TB NVMe SSD', price: 800 },
+                    { name: '2TB NVMe SSD + 4TB HDD', price: 300 },
+                    { name: '4TB NVMe SSD + 8TB HDD', price: 700 },
+                    { name: '1TB SATA SSD', price: 90 },
+                    { name: '2TB SATA SSD', price: 180 },
+                    { name: '4TB SATA SSD', price: 350 },
+                    { name: '8TB SATA SSD', price: 700 }
+                ]},
+                { type: 'Power Supply', options: [
+                    { name: '750W 80+ Gold', price: 90 },
+                    { name: '850W 80+ Platinum', price: 150 },
+                    { name: '1000W 80+ Gold', price: 180 },
+                    { name: '1200W 80+ Platinum', price: 250 },
+                    { name: '1500W 80+ Titanium', price: 350 },
+                    { name: '600W 80+ Bronze', price: 60 },
+                    { name: '700W 80+ Silver', price: 100 },
+                    { name: '900W 80+ Gold', price: 170 },
+                    { name: '1300W 80+ Gold', price: 280 },
+                    { name: '1600W 80+ Titanium', price: 400 }
+                ]}
+            ],
+            general: [
+                { type: 'GPU', options: [
+                    { name: 'NVIDIA GeForce GT 1030', price: 80 },
+                    { name: 'AMD Radeon RX 550', price: 100 },
+                    { name: 'NVIDIA GeForce GTX 1050 Ti', price: 150 },
+                    { name: 'NVIDIA GeForce GTX 1650', price: 200 },
+                    { name: 'NVIDIA GeForce GTX 1660', price: 250 },
+                    { name: 'AMD Radeon RX 570', price: 180 },
+                    { name: 'AMD Radeon RX 580', price: 220 },
+                    { name: 'NVIDIA GeForce GTX 1660 Ti', price: 300 },
+                    { name: 'NVIDIA GeForce RTX 2060', price: 350 },
+                    { name: 'AMD Radeon RX 590', price: 250 }
+                ]},
+                { type: 'CPU', options: [
+                    { name: 'Intel Core i3-10100', price: 120 },
+                    { name: 'AMD Ryzen 3 3100', price: 100 },
+                    { name: 'AMD Ryzen 5 3600', price: 180 },
+                    { name: 'Intel Core i5-10400', price: 150 },
+                    { name: 'AMD Ryzen 7 3700X', price: 300 },
+                    { name: 'Intel Core i7-10700', price: 280 },
+                    { name: 'Intel Core i5-11400', price: 200 },
+                    { name: 'AMD Ryzen 5 5600X', price: 250 },
+                    { name: 'Intel Core i7-11700', price: 320 },
+                    { name: 'Intel Core i9-10900', price: 450 }
+                ]},
+                { type: 'RAM', options: [
+                    { name: '8GB DDR4', price: 40 },
+                    { name: '16GB DDR4', price: 80 },
+                    { name: '32GB DDR4', price: 160 },
+                    { name: '16GB DDR4 3200MHz', price: 90 },
+                    { name: '32GB DDR4 3200MHz', price: 180 },
+                    { name: '8GB DDR4 3200MHz', price: 50 },
+                    { name: '16GB DDR4 3600MHz', price: 100 },
+                    { name: '32GB DDR4 3600MHz', price: 200 },
+                    { name: '64GB DDR4', price: 300 },
+                    { name: '8GB DDR4 3600MHz', price: 60 }
+                ]},
+                { type: 'Motherboard', options: [
+                    { name: 'ASRock B450M PRO4', price: 70 },
+                    { name: 'MSI B450M PRO-VDH MAX', price: 60 },
+                    { name: 'ASUS Prime B450M-A', price: 70 },
+                    { name: 'Gigabyte B450 AORUS M', price: 80 },
+                    { name: 'ASRock B550M Steel Legend', price: 110 },
+                    { name: 'MSI MAG B550 TOMAHAWK', price: 180 },
+                    { name: 'ASUS ROG Strix B550-F Gaming', price: 200 },
+                    { name: 'Gigabyte X570 AORUS Elite', price: 220 },
+                    { name: 'MSI MPG Z490 Gaming Edge WiFi', price: 190 },
+                    { name: 'ASUS TUF Gaming X570-Plus', price: 210 }
+                ]},
+                { type: 'Storage', options: [
+                    { name: '256GB NVMe SSD', price: 40 },
+                    { name: '512GB NVMe SSD', price: 50 },
+                    { name: '1TB NVMe SSD', price: 100 },
+                    { name: '2TB HDD', price: 60 },
+                    { name: '1TB NVMe SSD + 2TB HDD', price: 150 },
+                    { name: '2TB NVMe SSD', price: 200 },
+                    { name: '2TB NVMe SSD + 4TB HDD', price: 300 },
+                    { name: '4TB NVMe SSD', price: 400 },
+                    { name: '1TB SATA SSD', price: 90 },
+                    { name: '2TB SATA SSD', price: 180 }
+                ]},
+                { type: 'Power Supply', options: [
+                    { name: '450W 80+ Bronze', price: 40 },
+                    { name: '550W 80+ Bronze', price: 50 },
+                    { name: '650W 80+ Gold', price: 70 },
+                    { name: '750W 80+ Gold', price: 90 },
+                    { name: '850W 80+ Platinum', price: 150 },
+                    { name: '1000W 80+ Gold', price: 180 },
+                    { name: '1200W 80+ Platinum', price: 250 },
+                    { name: '600W 80+ Bronze', price: 60 },
+                    { name: '700W 80+ Silver', price: 100 },
+                    { name: '900W 80+ Gold', price: 170 }
+                ]}
+            ]
+        };
 
 document.getElementById('optibuildForm').addEventListener('submit', function(event) {
     event.preventDefault();
