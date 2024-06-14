@@ -200,171 +200,141 @@
     </div>
     
     <script>
+const componentData = {
+    gaming: [
+        { type: 'GPU', options: [
+            { name: 'NVIDIA GeForce GTX 1050 Ti', price: 150 },
+            { name: 'NVIDIA GeForce GTX 1660 Ti', price: 300 },
+            { name: 'NVIDIA GeForce RTX 3060', price: 400 },
+            { name: 'NVIDIA GeForce RTX 3070', price: 600 },
+            { name: 'NVIDIA GeForce RTX 3080', price: 800 },
+            { name: 'NVIDIA GeForce RTX 4080 Super', price: 1500 }
+        ]},
+        { type: 'CPU', options: [
+            { name: 'AMD Ryzen 5 3600', price: 180 },
+            { name: 'AMD Ryzen 7 3700X', price: 300 },
+            { name: 'Intel Core i5-10400F', price: 150 },
+            { name: 'Intel Core i7-10700K', price: 300 },
+            { name: 'AMD Ryzen 9 5900X', price: 450 },
+            { name: 'Intel Core i9-10900K', price: 500 },
+            { name: 'AMD Ryzen 5 5600X', price: 250 },
+            { name: 'Intel Core i5-11600K', price: 270 },
+            { name: 'Intel Core i7-11700K', price: 400 },
+            { name: 'AMD Ryzen 7 5800X', price: 450 }
+        ]},
+        { type: 'RAM', options: [
+            { name: '8GB DDR4', price: 40 },
+            { name: '16GB DDR4', price: 80 },
+            { name: '32GB DDR4', price: 160 },
+            { name: '16GB DDR4 3600MHz', price: 100 },
+            { name: '32GB DDR4 3600MHz', price: 200 },
+            { name: '64GB DDR4', price: 300 },
+            { name: '32GB DDR5', price: 250 },
+            { name: '64GB DDR5', price: 500 },
+            { name: '16GB DDR5', price: 120 },
+            { name: '8GB DDR5', price: 80 }
+        ]},
+        { type: 'Motherboard', options: [
+            { name: 'MSI B450M PRO-VDH MAX', price: 60 },
+            { name: 'ASUS Prime B450M-A', price: 70 },
+            { name: 'Gigabyte B450 AORUS M', price: 80 },
+            { name: 'ASRock B550M Steel Legend', price: 110 },
+            { name: 'MSI MAG B550 TOMAHAWK', price: 180 },
+            { name: 'ASUS ROG Strix B550-F Gaming', price: 200 },
+            { name: 'Gigabyte X570 AORUS Elite', price: 220 },
+            { name: 'MSI MPG Z490 Gaming Edge WiFi', price: 190 },
+            { name: 'ASUS TUF Gaming X570-Plus', price: 210 },
+            { name: 'ASRock B550 Phantom Gaming 4', price: 130 }
+        ]},
+        { type: 'Storage', options: [
+            { name: '512GB NVMe SSD', price: 50 },
+            { name: '1TB NVMe SSD', price: 100 },
+            { name: '2TB HDD', price: 60 },
+            { name: '500GB NVMe SSD + 1TB HDD', price: 110 },
+            { name: '1TB NVMe SSD + 2TB HDD', price: 150 },
+            { name: '2TB NVMe SSD', price: 200 },
+            { name: '2TB NVMe SSD + 4TB HDD', price: 300 },
+            { name: '4TB NVMe SSD', price: 400 },
+            { name: '1TB SATA SSD', price: 90 },
+            { name: '2TB SATA SSD', price: 180 }
+        ]},
+        { type: 'Power Supply', options: [
+            { name: '450W 80+ Bronze', price: 40 },
+            { name: '550W 80+ Bronze', price: 50 },
+            { name: '650W 80+ Gold', price: 70 },
+            { name: '750W 80+ Gold', price: 90 },
+            { name: '850W 80+ Platinum', price: 150 },
+            { name: '1000W 80+ Gold', price: 180 },
+            { name: '1200W 80+ Platinum', price: 250 },
+            { name: '600W 80+ Bronze', price: 60 },
+            { name: '700W 80+ Silver', price: 100 },
+            { name: '900W 80+ Gold', price: 170 }
+        ]}
+    ],
+    // Add workstation and general categories as well
+};
+
 document.getElementById('optibuildForm').addEventListener('submit', function(event) {
     event.preventDefault();
-    
-    const budget = parseFloat(document.getElementById('budget').value);
-    const performance = document.getElementById('performance').value;
-    const resultsDiv = document.getElementById('results');
-    
-    let recommendations = [];
-    let totalCost = 0;
 
-    const components = {
-        gaming: [
-            { type: 'GPU', options: [
-                { name: 'NVIDIA GeForce GTX 1650', price: 150 },
-                { name: 'NVIDIA GeForce GTX 1660', price: 250 },
-                { name: 'NVIDIA GeForce RTX 3060', price: 400 }
-            ]},
-            { type: 'CPU', options: [
-                { name: 'AMD Ryzen 3 3100', price: 100 },
-                { name: 'AMD Ryzen 5 3600', price: 180 },
-                { name: 'Intel Core i5-10400F', price: 150 }
-            ]},
-            { type: 'RAM', options: [
-                { name: '8GB DDR4', price: 40 },
-                { name: '16GB DDR4', price: 80 },
-                { name: '32GB DDR4', price: 160 }
-            ]},
-            { type: 'Motherboard', options: [
-                { name: 'MSI B450M PRO-VDH MAX', price: 60 },
-                { name: 'ASUS Prime B450M-A', price: 70 },
-                { name: 'Gigabyte B450 AORUS M', price: 80 }
-            ]},
-            { type: 'Storage', options: [
-                { name: '512GB NVMe SSD', price: 50 },
-                { name: '1TB NVMe SSD', price: 100 },
-                { name: '2TB HDD', price: 60 }
-            ]},
-            { type: 'Power Supply', options: [
-                { name: '450W 80+ Bronze', price: 40 },
-                { name: '550W 80+ Bronze', price: 50 },
-                { name: '650W 80+ Gold', price: 70 }
-            ]}
-        ],
-        workstation: [
-            { type: 'GPU', options: [
-                { name: 'NVIDIA Quadro P620', price: 200 },
-                { name: 'NVIDIA Quadro RTX 4000', price: 900 },
-                { name: 'NVIDIA Quadro RTX 5000', price: 1500 }
-            ]},
-            { type: 'CPU', options: [
-                { name: 'Intel Core i5-10400', price: 150 },
-                { name: 'Intel Core i7-10700K', price: 300 },
-                { name: 'AMD Ryzen 9 5900X', price: 450 }
-            ]},
-            { type: 'RAM', options: [
-                { name: '16GB DDR4', price: 80 },
-                { name: '32GB DDR4', price: 160 },
-                { name: '64GB DDR4', price: 300 }
-            ]},
-            { type: 'Motherboard', options: [
-                { name: 'ASUS Prime B460M-A', price: 70 },
-                { name: 'ASUS Prime Z490-A', price: 150 },
-                { name: 'MSI MAG B550 TOMAHAWK', price: 180 }
-            ]},
-            { type: 'Storage', options: [
-                { name: '1TB NVMe SSD', price: 100 },
-                { name: '1TB NVMe SSD + 2TB HDD', price: 150 },
-                { name: '2TB NVMe SSD + 4TB HDD', price: 300 }
-            ]},
-            { type: 'Power Supply', options: [
-                { name: '550W 80+ Bronze', price: 50 },
-                { name: '750W 80+ Gold', price: 90 },
-                { name: '850W 80+ Platinum', price: 150 }
-            ]}
-        ],
-        general: [
-            { type: 'GPU', options: [
-                { name: 'Integrated Graphics', price: 0 },
-                { name: 'NVIDIA GeForce GTX 1650', price: 150 },
-                { name: 'NVIDIA GeForce GTX 1660', price: 250 }
-            ]},
-            { type: 'CPU', options: [
-                { name: 'AMD Ryzen 3 3200G', price: 90 },
-                { name: 'AMD Ryzen 5 3600', price: 180 },
-                { name: 'Intel Core i5-10400F', price: 150 }
-            ]},
-            { type: 'RAM', options: [
-                { name: '8GB DDR4', price: 40 },
-                { name: '16GB DDR4', price: 80 },
-                { name: '32GB DDR4', price: 160 }
-            ]},
-            { type: 'Motherboard', options: [
-                { name: 'ASRock B450M PRO4', price: 60 },
-                { name: 'Gigabyte B450M DS3H', price: 60 },
-                { name: 'MSI B450 TOMAHAWK MAX', price: 100 }
-            ]},
-            { type: 'Storage', options: [
-                { name: '512GB NVMe SSD', price: 50 },
-                { name: '1TB NVMe SSD', price: 100 },
-                { name: '2TB HDD', price: 60 }
-            ]},
-            { type: 'Power Supply', options: [
-                { name: '450W 80+ Bronze', price: 40 },
-                { name: '550W 80+ Bronze', price: 50 },
-                { name: '650W 80+ Gold', price: 70 }
-            ]}
-        ]
+    const budget = parseInt(document.getElementById('budget').value);
+    const performance = document.getElementById('performance').value;
+
+    let totalCost = 0;
+    const recommendations = [];
+
+    const components = componentData[performance];
+
+    const selectComponent = (componentList, remainingBudget) => {
+        for (let i = componentList.length - 1; i >= 0; i--) {
+            if (componentList[i].price <= remainingBudget) {
+                return componentList[i];
+            }
+        }
+        return null;
     };
 
-    // Function to find the best component within the budget
-    function findBestComponent(options, remainingBudget) {
-        let bestComponent = null;
-        for (let i = options.length - 1; i >= 0; i--) {
-            if (options[i].price <= remainingBudget) {
-                bestComponent = options[i];
-                break; // Found the best component within budget
+    const calculateBestFit = (components, budget) => {
+        let bestFit = [];
+        let bestCost = 0;
+        let currentFit = [];
+        let currentCost = 0;
+
+        const backtrack = (index) => {
+            if (index === components.length) {
+                if (currentCost > bestCost && currentCost <= budget) {
+                    bestFit = [...currentFit];
+                    bestCost = currentCost;
+                }
+                return;
             }
-        }
-        return bestComponent;
-    }
 
-    // Allocate 40% of budget to GPU for gaming or workstation
-    let gpuBudget = 0;
-    if (performance === 'gaming' || performance === 'workstation') {
-        gpuBudget = budget * 0.4;
-    }
-
-    // Find best GPU within allocated budget
-    if (gpuBudget > 0) {
-        const gpuOptions = components[performance].find(component => component.type === 'GPU').options;
-        const bestGPU = findBestComponent(gpuOptions, gpuBudget);
-        if (bestGPU) {
-            recommendations.push(`${bestGPU.name} (€${bestGPU.price})`);
-            totalCost += bestGPU.price;
-        } else {
-            recommendations.push(`No suitable GPU within budget`);
-        }
-    }
-
-    // Remaining budget after GPU allocation
-    const remainingBudget = budget - totalCost;
-
-    // Distribute remaining budget among other components
-    components[performance].forEach(component => {
-        if (component.type !== 'GPU') {
-            const bestComponent = findBestComponent(component.options, remainingBudget);
-            if (bestComponent) {
-                recommendations.push(`${component.type}: ${bestComponent.name} (€${bestComponent.price})`);
-                totalCost += bestComponent.price;
-            } else {
-                recommendations.push(`${component.type}: Not enough budget`);
+            for (const option of components[index].options) {
+                if (currentCost + option.price <= budget) {
+                    currentFit.push({ type: components[index].type, ...option });
+                    currentCost += option.price;
+                    backtrack(index + 1);
+                    currentCost -= option.price;
+                    currentFit.pop();
+                }
             }
-        }
-    });
+        };
 
-    // Display recommendations and total cost
+        backtrack(0);
+        return { bestFit, bestCost };
+    };
+
+    const { bestFit, bestCost } = calculateBestFit(components, budget);
+
+    const resultsDiv = document.getElementById('results');
     resultsDiv.innerHTML = `
-        <h3>Προτάσεις εξαρτημάτων:</h3>
+        <h3>Προτεινόμενα εξαρτήματα:</h3>
         <ul>
-            ${recommendations.map(item => `<li>${item}</li>`).join('')}
+            ${bestFit.map(item => `<li><strong>${item.type}:</strong> ${item.name} (€${item.price})</li>`).join('')}
         </ul>
-        <p>Συνολικό κόστος: €${totalCost}</p>
+        <p><strong>Συνολικό κόστος:</strong> €${bestCost}</p>
     `;
 });
-
     </script>
 </body>
-</html>
+</html>`
